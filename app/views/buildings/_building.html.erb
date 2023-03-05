@@ -1,0 +1,19 @@
+<div class="building-item border-solid border-2 flex flex-row" id="<%= dom_id building %>">
+  <div class="building-img w-1/2">
+  </div>
+  <div class="building-meta w-1/2 flex flex-col">
+    <div class="flex-1">
+      <p class="my-5 text-3xl font-semibold text-black">
+        <%= building.name %>
+      </p>
+
+      <p class="my-5">
+        <%= building.address&.upcase %>
+      </p>
+    </div>
+
+    <% if action_name != "show" %>
+      <%= link_to "See Apartments", building, class: "rounded-lg py-2 px-2 bg-slate-600 w-fit text-white mb-2" %>
+    <% end %>
+  </div>
+</div>

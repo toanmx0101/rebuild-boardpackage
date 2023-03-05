@@ -91,3 +91,5 @@ gem 'rubocop', '~> 1.47'
 gem "sidekiq", "~> 7.0"
 
 gem "mysql2", "~> 0.5.5"
+
+gem "faker", "~> 3.1"
