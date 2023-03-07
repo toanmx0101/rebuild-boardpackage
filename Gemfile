@@ -93,3 +93,7 @@ gem "sidekiq", "~> 7.0"
 gem "mysql2", "~> 0.5.5"
 
 gem "faker", "~> 3.1"
+
+gem "image_processing", "~> 1.12"
+
+gem "paperclip", "~> 6.1"

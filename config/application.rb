@@ -24,6 +24,8 @@ module Todo
       'Cache-Control' => 'no-cache, no-store'
     }
 
+    config.eager_load_paths << Rails.root.join("lib")
     # config.eager_load_paths << Rails.root.join("extras")
+    config.paperclip_defaults = { storage: :fog, fog_credentials: { provider: "Local", local_root: "#{Rails.root}/public"}, fog_directory: "", fog_host: "localhost"}
   end
 end

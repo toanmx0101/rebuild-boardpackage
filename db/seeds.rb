@@ -12,3 +12,7 @@ user = User.create! :email => 'john@gmail.com', :password => 'topsecret', :passw
   )
 end
 
+Building.all.each do |building|
+  building.attach(io: File.open('/path/to/file')
+end
+
