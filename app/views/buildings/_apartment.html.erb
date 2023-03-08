@@ -1,0 +1,19 @@
+<div class="apartment-item border-solid border-2 flex flex-row gap-2 max-h-56 border-black" id="<%= dom_id apartment %>" style="min-height: 14rem;" >
+  <div class="apartment-img w-1/2">
+    <%# <%= image_tag apartment.image_url(size: :thumb), class: "max-h-56 m-auto",style: "min-height: 14rem;" %>
+  </div>
+  <div class="apartment-meta w-1/2 flex flex-col">
+    <div class="flex-1">
+      <p class="my-5 text-4xl font-semibold text-black">
+        <%= apartment.unit %>
+      </p>
+
+      <p class="my-5 font-bold  text-2xl">
+        <%= apartment.price_cents %>
+        <span class="font-medium text-sm"><%= apartment.pricing_plan.upcase  %></span>
+      </p>
+    </div>
+
+    <%= link_to "Schedule a Visit", "/", class: "rounded-lg py-2 px-2 bg-slate-600 w-fit text-white mb-3" %>
+  </div>
+</div>

@@ -97,3 +97,7 @@ gem "faker", "~> 3.1"
 gem "image_processing", "~> 1.12"
 
 gem "paperclip", "~> 6.1"
+
+gem "translate_enum", "~> 0.2.0"
+
+gem "money", "~> 6.16"

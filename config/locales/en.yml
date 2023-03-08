@@ -30,4 +30,13 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  attributes:
+    policy_type_list:
+      general: General Policies
+      finance: Finance Policies
+      additional: Additional Building Info
+  number:
+    currency:
+      format:
+        delimiter: ","
+        separator: "."

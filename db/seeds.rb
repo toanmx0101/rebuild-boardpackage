@@ -13,6 +13,8 @@ user = User.create! :email => 'john@gmail.com', :password => 'topsecret', :passw
 end
 
 Building.all.each do |building|
-  building.attach(io: File.open('/path/to/file')
+  building.cover_image.attach(io: File.open("app/assets/images/building_#{rand(13)}.jpeg"), filename: "#{SecureRandom.hex(5)}.jpeg")
+
+  building.cover_image.variant(:thumb).processed
 end
 

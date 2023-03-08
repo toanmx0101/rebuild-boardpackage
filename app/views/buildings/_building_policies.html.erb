@@ -1,0 +1,22 @@
+
+<div class="grid xl:grid-cols-2 gap-4">
+  <% building_policies.group_by(&:policy_type).each do |key, g_policies| %>
+    <div>
+      <div class="flex mb-3 px-3 py-2 bg-slate-800 text-white rounded items-center">
+        <p class="text-xl mr-4">
+          <%= BuildingPolicy.translated_policy_type(key) %>
+        </p>
+
+        <div class="h-px bg-white border-0 dark:bg-white flex-1"></div>
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <% g_policies.each do |g_policy| %>
+          <div class="policy">
+            <p><%= g_policy.policy.title %></p>
+            <p class="text-gray-400 italic"><%= g_policy.policy.description %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
