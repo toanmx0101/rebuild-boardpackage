@@ -45,6 +45,21 @@ services:
     depends_on:
         - database
         - elasticsearch
+  sidekiq:
+    build: .
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+      - DB_USERNAME=task_user
+      - DB_PASSWORD=task_password
+      - DB_HOST=database
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+        - database
+        - elasticsearch
 
 volumes:
   esdata:
