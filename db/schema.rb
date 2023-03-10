@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_08_055731) do
-  create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2023_03_09_030732) do
+  create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_055731) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "active_storage_blobs", charset: "utf8mb4", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -33,19 +33,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_055731) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "active_storage_variant_records", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "active_storage_variant_records", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "amenities", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "amenities", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "apartment_amenities", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "apartment_amenities", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "apartment_id", null: false
     t.bigint "amenity_id", null: false
     t.datetime "created_at", null: false
@@ -54,17 +54,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_055731) do
     t.index ["apartment_id"], name: "index_apartment_amenities_on_apartment_id"
   end
 
-  create_table "apartments", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "apartments", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "building_id", null: false
     t.string "unit"
     t.decimal "price", precision: 10
     t.string "pricing_plan"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status"
     t.index ["building_id"], name: "index_apartments_on_building_id"
   end
 
-  create_table "building_policies", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "building_policies", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "building_id"
     t.bigint "policy_id"
     t.datetime "created_at", null: false
@@ -74,7 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_055731) do
     t.index ["policy_id"], name: "index_building_policies_on_policy_id"
   end
 
-  create_table "buildings", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "buildings", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.text "address"
     t.decimal "lat", precision: 10
@@ -82,17 +83,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_055731) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "residential_type"
+    t.text "description"
     t.index ["user_id"], name: "index_buildings_on_user_id"
   end
 
-  create_table "policies", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "policies", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

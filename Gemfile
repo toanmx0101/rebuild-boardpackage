@@ -101,3 +101,9 @@ gem "paperclip", "~> 6.1"
 gem "translate_enum", "~> 0.2.0"
 
 gem "money", "~> 6.16"
+
+gem "gmaps4rails", "~> 2.1"
+
+gem "jsbundling-rails", "~> 1.1"
+
+gem 'bullet', group: 'development'

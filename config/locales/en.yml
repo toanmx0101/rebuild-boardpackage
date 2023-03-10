@@ -35,6 +35,14 @@ en:
       general: General Policies
       finance: Finance Policies
       additional: Additional Building Info
+  activerecord:
+    attributes:
+      building:
+        residential_type_list:
+          coop: Co-op
+          condo: Condominium
+          hoa: Homeowners Association
+          land_trust: Land Trust
   number:
     currency:
       format:

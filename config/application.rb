@@ -24,7 +24,7 @@ module Todo
       'Cache-Control' => 'no-cache, no-store'
     }
 
-
+    config.action_view.image_loading = "lazy"
     config.active_job.queue_adapter = :sidekiq
     config.eager_load_paths << Rails.root.join("lib")
     # config.eager_load_paths << Rails.root.join("extras")

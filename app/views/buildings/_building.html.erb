@@ -1,10 +1,10 @@
 <div class="building-item border-solid border-2 flex flex-row gap-2 max-h-56" id="<%= dom_id building %>" style="min-height: 14rem;" >
-  <div class="building-img w-1/2">
-    <%= image_tag building.cover_image_url(size: :thumb), class: "max-h-56 m-auto",style: "min-height: 14rem;" %>
+  <div class="building-img w-1/2 relative">
+    <%= image_tag building.cover_image_url(size: :thumb), class: "w-full absolute h-full object-cover top-0 left-0 max-h-56", cache_control: "max-age=86400", expires_in: 1.day%>
   </div>
   <div class="building-meta w-1/2 flex flex-col">
     <div class="flex-1">
-      <p class="my-5 md:text-md xl:text-3xl font-semibold text-black">
+      <p class="my-5 md:text-md xl:text-2xl font-semibold text-black">
         <%= building.name %>
       </p>
 

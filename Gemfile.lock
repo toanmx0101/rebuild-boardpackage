@@ -76,6 +76,9 @@ GEM
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    bullet (7.0.7)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.11)
     capybara (3.38.0)
       addressable
       matrix
@@ -137,6 +140,7 @@ GEM
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    gmaps4rails (2.1.2)
     hashie (5.0.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
@@ -152,6 +156,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    jsbundling-rails (1.1.1)
+      railties (>= 6.0.0)
     json (2.6.3)
     loofah (2.19.1)
       crass (~> 1.0.2)
@@ -311,6 +317,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.4.2)
+    uniform_notifier (1.16.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -334,19 +341,23 @@ GEM
 PLATFORMS
   aarch64-linux
   arm64-darwin-21
+  arm64-darwin-22
   x86_64-linux
 
 DEPENDENCIES
   bonsai-searchkick (~> 0.0.1)
   bootsnap
+  bullet
   capybara
   debug
   devise (~> 4.9)
   elasticsearch (= 7.17)
   faker (~> 3.1)
+  gmaps4rails (~> 2.1)
   image_processing (~> 1.12)
   importmap-rails
   jbuilder
+  jsbundling-rails (~> 1.1)
   money (~> 6.16)
   mysql2 (~> 0.5.5)
   paperclip (~> 6.1)

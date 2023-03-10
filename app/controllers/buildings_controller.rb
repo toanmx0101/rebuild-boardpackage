@@ -1,25 +1,23 @@
 class BuildingsController < ApplicationController
   before_action :set_building, only: %i[ show edit update destroy ]
 
-  # GET /buildings or /buildings.json
   def index
-    @buildings = Building.all
+    @buildings = Building.all.includes(cover_image_attachment: :blob)
+    @best_match_buildings = @buildings.sample(3)
   end
 
-  # GET /buildings/1 or /buildings/1.json
   def show
+    @available_apartments = @building.apartments.includes(image_attachment: :blob).available
+    @building_policies = @building.building_policies.includes(:policy)
   end
 
-  # GET /buildings/new
   def new
     @building = Building.new
   end
 
-  # GET /buildings/1/edit
   def edit
   end
 
-  # POST /buildings or /buildings.json
   def create
     @building = Building.new(building_params)
 
@@ -32,7 +30,6 @@ class BuildingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /buildings/1 or /buildings/1.json
   def update
     respond_to do |format|
       if @building.update(building_params)
@@ -43,7 +40,6 @@ class BuildingsController < ApplicationController
     end
   end
 
-  # DELETE /buildings/1 or /buildings/1.json
   def destroy
     @building.destroy
 
@@ -53,12 +49,10 @@ class BuildingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_building
       @building = Building.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def building_params
       params.require(:building).permit(:name, :address, :lat, :long)
     end

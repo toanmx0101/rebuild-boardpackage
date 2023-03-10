@@ -1,0 +1,21 @@
+<div class="lg:w-1/2">
+    <div id="map" style='width: 100%; height: 400px;'></div>
+</div>
+<script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+        markers = handler.addMarkers([
+        {
+            "lat": <%= building.lat %>,
+            "lng": <%= building.long %>,
+            "picture": {
+            "width":  32,
+            "height": 32
+            },
+            "infowindow": "<%= building.name %>"
+        }
+        ]);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+    });
+</script>

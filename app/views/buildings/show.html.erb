@@ -1,39 +1,68 @@
-<div class="building-img w-full">
-    <%= image_tag @building.cover_image_url%>
+
+<div class="lg:h-50v h-30v "  style="margin-top: 6rem">
+  <%= image_tag @building.cover_image_url, class: "w-full h-full object-cover" %>
+</div>
+
+<main class="xl:container mx-auto px-5 flex flex-col lg:p-8">
+  <div>
+    <p>
+      <%= @building.description %>
+    </p>
   </div>
+  <hr class="h-px my-8 bg-gray-800 border-0 dark:bg-gray-900">
 
-<hr class="h-px my-8 bg-gray-800 border-0 dark:bg-gray-900">
+  <section>
+    <h3 class="text-3xl font-bold text-gray-700 mb-2">
+      Apartments for Rent
+    </h3>
+    <p class="mb-4">
+      Please note that apartment availability is aways changing. Some of these apartments may no longer be available, while others may have been vacated recently
+    </p>
 
-<section>
-  <h3 class="text-3xl font-bold text-gray-700 mb-2">
-    Apartments for Rent
-  </h3>
-  <p class="mb-4">
-    Please note that apartment availability is aways changing. Some of these apartments may no longer be available, while others may have been vacated recently
-  </p>
-
-  <% if @building.building_policies.present? %>
-    <div class="mx-auto w-full flex">
-      <div class="min-w-full grid lg:grid-cols-2 gap-y-6 gap-x-40">
-        <% @building.apartments.each do |apartment| %>
-          <%= render "apartment", apartment: apartment %>
-        <% end %>
+    <% if @available_apartments.present? %>
+      <div class="mx-auto w-full flex">
+        <div class="min-w-full grid lg:grid-cols-2 gap-y-6 gap-x-40">
+          <% @available_apartments.each do |apartment| %>
+            <%= render "apartment", apartment: apartment %>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% else %>
-    <%= render "empty_apartments"%>
-  <% end %>
-</section>
+    <% else %>
+      <%= render "empty_apartments"%>
+    <% end %>
+  </section>
 
-<hr class="h-px my-8 bg-gray-800 border-0 dark:bg-gray-900">
+  <hr class="h-px my-8 bg-gray-800 border-0 dark:bg-gray-900">
 
-<section>
-  <h3 class="text-3xl font-bold text-gray-700 mb-4">
-    Building Policies
-  </h3>
-  <% if @building.building_policies.present? %>
-    <%= render "building_policies", building_policies: @building.building_policies %>
-  <% else %>
-    <%= render "empty_policies"%>
-  <% end %>
-</section>
+  <section>
+    <h3 class="text-3xl font-bold text-gray-700 mb-4">
+      Building Policies
+    </h3>
+    <% if @building_policies.present? %>
+      <%= render "building_policies", building_policies: @building_policies %>
+    <% else %>
+      <%= render "empty_policies"%>
+    <% end %>
+  </section>
+
+  <hr class="h-px my-8 bg-gray-800 border-0 dark:bg-gray-900">
+
+  <section>
+    <h3 class="text-3xl font-bold text-gray-700 mb-4">
+      Map
+    </h3>
+
+    <%= render "building_map", building: @building %>
+  </section>
+
+  <hr class="h-px my-8 bg-gray-800 border-0 dark:bg-gray-900">
+
+  <section>
+    <h3 class="text-3xl font-bold text-gray-700 mb-4">
+      Form
+    </h3>
+
+    <div id="registration-form" class="mt-4 pt-4"></div>
+  </section>
+</main>
+
