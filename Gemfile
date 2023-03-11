@@ -76,8 +76,6 @@ gem 'simple_command', '~> 1.0'
 
 gem 'searchkick', '~> 5.2'
 
-gem 'elasticsearch', '7.17'
-
 gem 'bonsai-searchkick', '~> 0.0.1'
 
 gem 'pry', '~> 0.14.2'
