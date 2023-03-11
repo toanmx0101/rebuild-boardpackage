@@ -1,6 +1,10 @@
 FROM ruby:3.1.2
 
 RUN apt-get update -qq && apt-get install -y default-libmysqlclient-dev
+RUN apt-get install -y libglib2.0-0
+RUN apt-get install -y libpoppler-glib8
+RUN apt-get install -y libvips
+RUN apt-get install -y libvips42
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
     apt-get install -y nodejs
 
