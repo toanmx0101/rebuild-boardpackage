@@ -45,6 +45,7 @@ Do not sweat the actual information. Feel free to make up your own values.
 ### First setup
 
 ```
+docker compose up --build
 docker-compose exec web rails db:migrate
 docker-compose exec web rails db:seed
 ```
