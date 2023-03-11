@@ -10,10 +10,8 @@ default: &default
 
 development:
   <<: *default
-  database: rebuild_boardpackage_development
-  host: localhost
-  username: root
-  password:
+  database: testdb
+  host: database
   port: 3306
   timeout: 5000
 

@@ -22,8 +22,8 @@ services:
   web:
     build: .
     environment:
-      DB_USERNAME: task_user
-      DB_PASSWORD: task_password
+      DB_USERNAME: user_testdb
+      DB_PASSWORD: password
       DB_HOST: database
       REDIS_URL: "redis://redis:6379/0"
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -40,8 +40,8 @@ services:
   sidekiq:
     build: .
     environment:
-      DB_USERNAME: task_user
-      DB_PASSWORD: task_password
+      DB_USERNAME: user_testdb
+      DB_PASSWORD: password
       DB_HOST: database
       REDIS_URL: "redis://redis:6379/0"
     links:

@@ -74,10 +74,6 @@ gem 'devise', '~> 4.9'
 
 gem 'simple_command', '~> 1.0'
 
-gem 'searchkick', '~> 5.2'
-
-gem 'bonsai-searchkick', '~> 0.0.1'
-
 gem 'pry', '~> 0.14.2'
 
 gem 'tailwindcss-rails', '~> 2.0'
