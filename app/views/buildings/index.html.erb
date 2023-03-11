@@ -1,11 +1,11 @@
 <%= render "best_match_buildings", best_match_buildings: @best_match_buildings %>
-<main class="xl:container mx-auto px-5 flex flex-col lg:p-8">
-  <div class="flex flex-col m-auto gap-4">
+<main class="xl:container mx-auto px-5 flex flex-col lg:p-8" style="margin-top: 6rem">
+  <div class="flex flex-col lg:m-auto gap-4">
     <div class="flex justify-between items-center">
       <h1 class="font-bold text-4xl">Rental buildings</h1>
     </div>
 
-    <div id="buildings" class="min-w-full grid grid-cols-2 gap-y-6 gap-x-20">
+    <div id="buildings" class="min-w-full grid lg:grid-cols-2 gap-y-6 gap-x-20">
       <%= render @buildings %>
     </div>
   </div>
